@@ -1,5 +1,6 @@
 import Logo from "@/components/navbar-components/logo"
 import { Button } from "@/components/ui/button"
+import { ThemeToggle } from "@/components/ui/theme-toggle"
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -24,7 +25,7 @@ const navigationLinks = [
 
 export default function ConferenceNavbar() {
   return (
-    <header className="border-b px-4 md:px-6">
+    <header className="border-b border-border/60 px-4 md:px-6 bg-background/80 backdrop-blur-md transition-colors duration-300 sticky top-0 z-50">
       <div className="flex h-16 items-center justify-between gap-4">
         {/* Left side */}
         <div className="flex items-center gap-2">
@@ -106,6 +107,7 @@ export default function ConferenceNavbar() {
         </div>
         {/* Right side */}
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <Button asChild variant="ghost" size="sm" className="text-sm">
             <a href="#contact">Contact</a>
           </Button>

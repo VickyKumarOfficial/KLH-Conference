@@ -8,7 +8,7 @@ import { conferenceData } from "@/data/conference";
 
 export default function HeroSection() {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative h-screen flex items-center justify-center overflow-hidden -mt-16">
       {/* Spotlight Effects */}
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"
@@ -16,16 +16,16 @@ export default function HeroSection() {
       />
       <Spotlight
         className="top-10 left-full h-[80vh] w-[50vw]"
-        fill="purple"
+        fill="hsl(var(--primary))"
       />
       <Spotlight
         className="top-28 left-80 h-[80vh] w-[50vw]"
-        fill="blue"
+        fill="hsl(var(--accent))"
       />
 
       {/* Hero Content */}
       <HeroHighlight>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

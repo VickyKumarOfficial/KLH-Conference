@@ -6,9 +6,9 @@ export default function Logo() {
       <img 
         src={logoImage} 
         alt="KLH Conference Logo" 
-        className="h-8 w-auto"
+        className="h-8 w-auto transition-opacity duration-300 dark:brightness-110"
       />
-      <span className="font-bold text-lg text-primary">KLH Conference</span>
+      <span className="font-bold text-lg text-foreground transition-colors duration-300">KLH Conference</span>
     </div>
   )
 }

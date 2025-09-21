@@ -2,3 +2,34 @@
 .container {
   max-width: 1200px;
 }
+
+/* Enhanced theme transitions */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom spotlight styling for theme compatibility */
+.spotlight {
+  background: linear-gradient(
+    45deg,
+    hsl(var(--primary) / 0.1),
+    hsl(var(--accent) / 0.05),
+    hsl(var(--secondary) / 0.1)
+  );
+}
+
+/* Dark mode adjustments for images */
+.dark img {
+  filter: brightness(0.9) contrast(1.1);
+}
+
+/* Enhanced focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}

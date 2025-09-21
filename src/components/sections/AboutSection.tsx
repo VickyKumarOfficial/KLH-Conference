@@ -58,18 +58,54 @@ const highlightItems = [
 ];
 
 const attendeeCategories = [
-  { icon: GraduationCap, title: "Researchers & Academicians", color: "text-blue-500" },
-  { icon: Building, title: "Industry Professionals", color: "text-green-500" },
-  { icon: Zap, title: "Technology Enthusiasts", color: "text-purple-500" },
-  { icon: Award, title: "Students & Scholars", color: "text-orange-500" },
-  { icon: Globe, title: "Policy Makers", color: "text-cyan-500" },
-  { icon: Handshake, title: "Entrepreneurs", color: "text-pink-500" }
+  { 
+    icon: GraduationCap, 
+    title: "Researchers & Academicians", 
+    color: "text-blue-500",
+    description: "Leading scientists, professors, and research scholars driving innovation in their fields",
+    benefits: ["Latest research insights", "Networking opportunities", "Publication opportunities"]
+  },
+  { 
+    icon: Building, 
+    title: "Industry Professionals", 
+    color: "text-green-500",
+    description: "Executives, managers, and technical experts from various industries",
+    benefits: ["Industry trends", "Best practices", "Strategic partnerships"]
+  },
+  { 
+    icon: Zap, 
+    title: "Technology Enthusiasts", 
+    color: "text-purple-500",
+    description: "Tech innovators, developers, and digital transformation leaders",
+    benefits: ["Cutting-edge tech", "Innovation strategies", "Technical workshops"]
+  },
+  { 
+    icon: Award, 
+    title: "Students & Scholars", 
+    color: "text-orange-500",
+    description: "Graduate students, PhD candidates, and emerging researchers",
+    benefits: ["Learning opportunities", "Career guidance", "Research collaboration"]
+  },
+  { 
+    icon: Globe, 
+    title: "Policy Makers", 
+    color: "text-cyan-500",
+    description: "Government officials, regulators, and policy development experts",
+    benefits: ["Policy insights", "Regulatory updates", "Stakeholder engagement"]
+  },
+  { 
+    icon: Handshake, 
+    title: "Entrepreneurs", 
+    color: "text-pink-500",
+    description: "Startup founders, business innovators, and venture capitalists",
+    benefits: ["Investment opportunities", "Market insights", "Business networking"]
+  }
 ];
 
 export default function AboutSection() {
   return (
-    <section id="about" className="relative py-20 bg-neutral-50 dark:bg-neutral-900 overflow-hidden">
-      <BackgroundBeams />
+    <section id="about" className="relative py-20 bg-neutral-50 dark:bg-neutral-900/50 overflow-hidden transition-colors duration-300">
+      <BackgroundBeams className="opacity-30 dark:opacity-20" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -153,25 +189,44 @@ export default function AboutSection() {
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {attendeeCategories.map((category, index) => {
               const IconComponent = category.icon;
               return (
                 <motion.div
                   key={index}
-                  className="bg-white dark:bg-neutral-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-neutral-200 dark:border-neutral-700 text-center group"
-                  whileHover={{ scale: 1.05, y: -10 }}
+                  className="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-neutral-200 dark:border-neutral-700 group"
+                  whileHover={{ scale: 1.02, y: -5 }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <div className={`mx-auto mb-4 p-3 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 group-hover:from-primary/20 group-hover:to-primary/10 transition-all duration-300`}>
+                  <div className={`mx-auto mb-6 p-4 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 group-hover:from-primary/20 group-hover:to-primary/10 transition-all duration-300 w-fit`}>
                     <IconComponent className={`h-8 w-8 ${category.color} group-hover:scale-110 transition-transform duration-300`} />
                   </div>
-                  <h4 className="font-semibold text-neutral-800 dark:text-white text-sm leading-tight">
-                    {category.title}
-                  </h4>
+                  
+                  <div className="text-center">
+                    <h4 className="font-bold text-neutral-800 dark:text-white text-lg mb-3 leading-tight">
+                      {category.title}
+                    </h4>
+                    
+                    <p className="text-neutral-600 dark:text-neutral-300 text-sm mb-4 leading-relaxed">
+                      {category.description}
+                    </p>
+                    
+                    <div className="space-y-2">
+                      <h5 className="font-semibold text-primary text-sm">What You'll Gain:</h5>
+                      <ul className="space-y-1">
+                        {category.benefits.map((benefit, idx) => (
+                          <li key={idx} className="text-neutral-600 dark:text-neutral-400 text-xs flex items-center justify-center gap-2">
+                            <div className="w-1 h-1 bg-primary rounded-full"></div>
+                            {benefit}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </motion.div>
               );
             })}

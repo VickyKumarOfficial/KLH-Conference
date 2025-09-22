@@ -1,3 +1,4 @@
+import { Link, useLocation } from "react-router-dom"
 import Logo from "@/components/navbar-components/logo"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
@@ -15,13 +16,15 @@ import {
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
-  { href: "#", label: "Home", active: true },
+  { href: "/", label: "Home" },
   { href: "#speakers", label: "Speakers" },
-  { href: "#schedule", label: "Schedule" },
+  { href: "/schedule", label: "Schedule" },
   { href: "#about", label: "About" },
 ]
 
 export default function ConferenceNavbar() {
+  const location = useLocation()
+  
   return (
     <header className="px-4 md:px-6 bg-white/95 dark:bg-black/95 backdrop-blur-lg transition-colors duration-300 sticky top-0 z-50">
       <div className="flex h-16 items-center justify-between gap-4">
@@ -67,13 +70,24 @@ export default function ConferenceNavbar() {
                 <NavigationMenuList className="flex-col items-start gap-0 md:gap-2">
                   {navigationLinks.map((link, index) => (
                     <NavigationMenuItem key={index} className="w-full">
-                      <NavigationMenuLink
-                        href={link.href}
-                        className="py-1.5"
-                        active={link.active}
-                      >
-                        {link.label}
-                      </NavigationMenuLink>
+                      {link.href.startsWith('/') ? (
+                        <Link to={link.href} className="block w-full">
+                          <NavigationMenuLink
+                            className="py-1.5"
+                            active={location.pathname === link.href}
+                          >
+                            {link.label}
+                          </NavigationMenuLink>
+                        </Link>
+                      ) : (
+                        <NavigationMenuLink
+                          href={link.href}
+                          className="py-1.5"
+                          active={location.pathname === "/" && link.href.includes("home")}
+                        >
+                          {link.label}
+                        </NavigationMenuLink>
+                      )}
                     </NavigationMenuItem>
                   ))}
                 </NavigationMenuList>
@@ -82,21 +96,32 @@ export default function ConferenceNavbar() {
           </Popover>
           {/* Main nav */}
           <div className="flex items-center gap-6">
-            <a href="#" className="text-primary hover:text-primary/90">
+            <Link to="/" className="text-primary hover:text-primary/90">
               <Logo />
-            </a>
+            </Link>
             {/* Navigation menu */}
             <NavigationMenu className="max-md:hidden">
               <NavigationMenuList className="gap-2">
                 {navigationLinks.map((link, index) => (
                   <NavigationMenuItem key={index}>
-                    <NavigationMenuLink
-                      active={link.active}
-                      href={link.href}
-                      className="text-muted-foreground hover:text-primary py-1.5 font-medium"
-                    >
-                      {link.label}
-                    </NavigationMenuLink>
+                    {link.href.startsWith('/') ? (
+                      <Link to={link.href}>
+                        <NavigationMenuLink
+                          active={location.pathname === link.href}
+                          className="text-muted-foreground hover:text-primary py-1.5 font-medium"
+                        >
+                          {link.label}
+                        </NavigationMenuLink>
+                      </Link>
+                    ) : (
+                      <NavigationMenuLink
+                        active={location.pathname === "/" && link.href.includes("home")}
+                        href={link.href}
+                        className="text-muted-foreground hover:text-primary py-1.5 font-medium"
+                      >
+                        {link.label}
+                      </NavigationMenuLink>
+                    )}
                   </NavigationMenuItem>
                 ))}
               </NavigationMenuList>

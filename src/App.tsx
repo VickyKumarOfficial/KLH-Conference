@@ -1,21 +1,22 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import ConferenceNavbar from '@/components/comp-577'
-import HeroSection from '@/components/sections/HeroSection'
-import AboutSection from '@/components/sections/AboutSection'
-import LogoBar from '@/components/sections/LogoBar'
+import Home from '@/pages/Home'
+import Schedule from '@/pages/Schedule'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import './App.css'
 
 function App() {
   return (
     <ThemeProvider defaultTheme="light" enableSystem>
-      <div className="min-h-screen bg-background transition-colors duration-300">
-        <ConferenceNavbar />
-        <LogoBar />
-        <main>
-          <HeroSection />
-          <AboutSection />
-        </main>
-      </div>
+      <Router>
+        <div className="min-h-screen bg-background transition-colors duration-300">
+          <ConferenceNavbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/schedule" element={<Schedule />} />
+          </Routes>
+        </div>
+      </Router>
     </ThemeProvider>
   )
 }

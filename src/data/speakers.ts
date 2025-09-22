@@ -20,7 +20,7 @@ export const speakers: SpeakersByYear = {
       affiliation: "EFL-U, Hyderabad",
       position: "Professor",
       expertise: ["Theoretical Linguistics", "Language Philosophy", "Cognitive Science"],
-      image: "/src/assets/Prof. M. E. Veda Sharan.png",
+      image: "/Prof. M. E. Veda Sharan.png",
       year: 2026
     },
     {
@@ -29,7 +29,7 @@ export const speakers: SpeakersByYear = {
       affiliation: "EFL-U, Hyderabad",
       position: "Professor",
       expertise: ["Applied Linguistics", "Language Education", "Corpus Linguistics"],
-      image: "/src/assets/Prof. T. Samson.png",
+      image: "/Prof. T. Samson.png",
       year: 2026
     },
     {
@@ -38,7 +38,7 @@ export const speakers: SpeakersByYear = {
       affiliation: "EFL-U, Hyderabad",
       position: "Professor",
       expertise: ["Computational Linguistics", "Natural Language Processing", "Machine Learning"],
-      image: "/src/assets/Dr. G. Kiran Kumar .png",
+      image: "/Dr. G. Kiran Kumar .png",
       year: 2026
     },
     {
@@ -47,7 +47,7 @@ export const speakers: SpeakersByYear = {
       affiliation: "NIT Warangal",
       position: "Professor",
       expertise: ["Language Models", "Text Analytics", "Information Extraction"],
-      image: "/src/assets/Dr. Spoorthi Boda.png",
+      image: "/Dr. Spoorthi Boda.png",
       year: 2026
     },
     {
@@ -56,7 +56,7 @@ export const speakers: SpeakersByYear = {
       affiliation: "Central University Hyderabad",
       position: "Professor",
       expertise: ["Machine Translation", "Multilingual Processing", "Language Resources"],
-      image: "/src/assets/Dr. Vamshi Krishna .png",
+      image: "/Dr. Vamshi Krishna .png",
       year: 2026
     },
     {
@@ -65,7 +65,7 @@ export const speakers: SpeakersByYear = {
       affiliation: "Polytechnic Sr.Lecturer",
       position: "Senior Lecturer",
       expertise: ["Linguistics", "Language Technology", "Computational Models"],
-      image: "/src/assets/Dr. Maneri. Sundeep .png",
+      image: "/Dr. Maneri. Sundeep .png",
       year: 2026
     },
     {
@@ -74,7 +74,7 @@ export const speakers: SpeakersByYear = {
       affiliation: "Mahindra University",
       position: "Professor",
       expertise: ["Language Processing", "Artificial Intelligence", "Deep Learning"],
-      image: "/src/assets/Dr. C. Tabitha .png",
+      image: "/Dr. C. Tabitha .png",
       year: 2026
     },
     {
@@ -83,7 +83,7 @@ export const speakers: SpeakersByYear = {
       affiliation: "NIT Hamirpur",
       position: "Professor",
       expertise: ["Natural Language Understanding", "Speech Processing", "AI Research"],
-      image: "/src/assets/Dr. Manoj Kr Yadav.png",
+      image: "/Dr. Manoj Kr Yadav.png",
       year: 2026
     }
   ]

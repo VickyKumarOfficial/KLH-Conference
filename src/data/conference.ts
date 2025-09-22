@@ -1,7 +1,7 @@
 export const conferenceData = {
-  title: "KLH International Conference 2025",
-  subtitle: "Innovations in Technology & Research",
-  tagline: "Shaping the Future Through Knowledge and Innovation",
+  title: "Interdisciplinary Conversations in Language, Literature, and Pedagogy (ICLLP - 2026)",
+  subtitle: "International Conference ",
+  tagline: "Innovations in Technology & Research - Shaping the Future Through Knowledge and Innovation",
   date: "March 15-17, 2025",
   venue: "KLH University Campus, Hyderabad",
   description: "Join us for three days of groundbreaking presentations, networking opportunities, and collaborative discussions with leading experts from around the world.",

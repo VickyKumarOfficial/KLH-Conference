@@ -51,7 +51,7 @@ export default function LogoBar() {
 
   return (
     <section 
-      className="group relative bg-white dark:bg-black py-0 -mt-8 pt-8"
+      className="group relative bg-white dark:bg-black py-0 -mt-8 pt-8 -mb-4"
       onMouseMove={handleMouseMove}
     >
       {/* Dot pattern backgrounds */}

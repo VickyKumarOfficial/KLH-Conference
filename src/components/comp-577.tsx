@@ -17,7 +17,7 @@ import {
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
   { href: "/", label: "Home" },
-  { href: "#speakers", label: "Speakers" },
+  { href: "/speakers", label: "Speakers" },
   { href: "/schedule", label: "Schedule" },
   { href: "#about", label: "About" },
 ]
@@ -69,16 +69,16 @@ export default function ConferenceNavbar() {
               <NavigationMenu className="max-w-none *:w-full">
                 <NavigationMenuList className="flex-col items-start gap-0 md:gap-2">
                   {navigationLinks.map((link, index) => (
-                    <NavigationMenuItem key={index} className="w-full">
+                    <NavigationMenuItem key={`mobile-${link.href}-${index}`} className="w-full">
                       {link.href.startsWith('/') ? (
-                        <Link to={link.href} className="block w-full">
-                          <NavigationMenuLink
-                            className="py-1.5"
-                            active={location.pathname === link.href}
+                        <NavigationMenuLink asChild>
+                          <Link 
+                            to={link.href} 
+                            className="block w-full py-1.5"
                           >
                             {link.label}
-                          </NavigationMenuLink>
-                        </Link>
+                          </Link>
+                        </NavigationMenuLink>
                       ) : (
                         <NavigationMenuLink
                           href={link.href}
@@ -103,16 +103,16 @@ export default function ConferenceNavbar() {
             <NavigationMenu className="max-md:hidden">
               <NavigationMenuList className="gap-2">
                 {navigationLinks.map((link, index) => (
-                  <NavigationMenuItem key={index}>
+                  <NavigationMenuItem key={`desktop-${link.href}-${index}`}>
                     {link.href.startsWith('/') ? (
-                      <Link to={link.href}>
-                        <NavigationMenuLink
-                          active={location.pathname === link.href}
+                      <NavigationMenuLink asChild>
+                        <Link 
+                          to={link.href}
                           className="text-muted-foreground hover:text-primary py-1.5 font-medium"
                         >
                           {link.label}
-                        </NavigationMenuLink>
-                      </Link>
+                        </Link>
+                      </NavigationMenuLink>
                     ) : (
                       <NavigationMenuLink
                         active={location.pathname === "/" && link.href.includes("home")}
@@ -135,7 +135,7 @@ export default function ConferenceNavbar() {
             <a href="#contact">Contact</a>
           </Button>
           <Button asChild size="sm" className="text-sm">
-            <a href="#register">Register Now</a>
+            <Link to="/registration">Register Now</Link>
           </Button>
         </div>
       </div>

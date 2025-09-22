@@ -2,6 +2,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import ConferenceNavbar from '@/components/comp-577'
 import Home from '@/pages/Home'
 import Schedule from '@/pages/Schedule'
+import { Speakers } from '@/pages/Speakers'
+import Registration from '@/pages/Registration'
+import { WhatsAppFloat } from '@/components/ui/whatsapp-float'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import './App.css'
 
@@ -14,7 +17,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/schedule" element={<Schedule />} />
+            <Route path="/speakers" element={<Speakers />} />
+            <Route path="/registration" element={<Registration />} />
           </Routes>
+          <WhatsAppFloat />
         </div>
       </Router>
     </ThemeProvider>

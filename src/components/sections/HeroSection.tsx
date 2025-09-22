@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
 import { Spotlight } from "@/components/ui/spotlight";
 import { Button } from "@/components/ui/button";
@@ -116,11 +117,14 @@ export default function HeroSection() {
               transition={{ duration: 0.5, delay: 1.0 }}
             >
               <Button 
+                asChild
                 size="lg" 
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 text-sm sm:text-base md:text-lg lg:text-xl font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
               >
-                Register Now
-                <ArrowRight className="ml-1 sm:ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
+                <Link to="/registration">
+                  Register Now
+                  <ArrowRight className="ml-1 sm:ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
               <Button 
                 variant="outline" 

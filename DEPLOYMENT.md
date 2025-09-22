@@ -11,6 +11,8 @@ A modern, responsive conference website built with React, TypeScript, and Vite.
 - ✅ TypeScript strict mode compliant
 - ✅ Production ready
 
+
+
 ## Build Status
 
 Last updated: September 22, 2025

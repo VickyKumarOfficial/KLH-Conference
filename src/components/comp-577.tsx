@@ -16,16 +16,14 @@ import {
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
   { href: "#", label: "Home", active: true },
-  { href: "#about", label: "About" },
   { href: "#speakers", label: "Speakers" },
   { href: "#schedule", label: "Schedule" },
-  { href: "#venue", label: "Venue" },
-  { href: "#sponsors", label: "Sponsors" },
+  { href: "#about", label: "About" },
 ]
 
 export default function ConferenceNavbar() {
   return (
-    <header className="border-b border-border/60 px-4 md:px-6 bg-background/80 backdrop-blur-md transition-colors duration-300 sticky top-0 z-50">
+    <header className="px-4 md:px-6 bg-white/95 dark:bg-black/95 backdrop-blur-lg transition-colors duration-300 sticky top-0 z-50">
       <div className="flex h-16 items-center justify-between gap-4">
         {/* Left side */}
         <div className="flex items-center gap-2">

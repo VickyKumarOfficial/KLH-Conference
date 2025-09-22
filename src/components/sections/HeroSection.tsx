@@ -8,7 +8,7 @@ import { conferenceData } from "@/data/conference";
 
 export default function HeroSection() {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative h-[75vh] flex items-center justify-center overflow-hidden -mb-0">
       {/* Spotlight Effects */}
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"

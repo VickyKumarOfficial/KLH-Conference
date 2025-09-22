@@ -51,11 +51,11 @@ export const aboutData = {
   description: "The KLH International Conference 2025 brings together leading minds in technology, research, and innovation. This premier event serves as a platform for sharing cutting-edge research, fostering collaboration, and discussing the future of technology.",
   
   objectives: [
-    "Facilitate knowledge exchange between academia and industry",
-    "Showcase latest research developments and innovations",
-    "Foster international collaboration and partnerships",
-    "Provide networking opportunities for professionals",
-    "Discuss emerging trends and future directions"
+    "To explore the latest research and innovative pedagogical approaches at the intersection of language, literature, and teaching",
+    "To foster a collaborative environment for networking and knowledge sharing among academics, educators, and researchers from diverse backgrounds",
+    "To critically examine the role of technology in shaping language and literature education",
+    "To discuss the challenges and opportunities in teaching language and literature in multilingual and multicultural contexts",
+    "To generate new research questions and theoretical frameworks that bridge the gaps between linguistics, literary studies, and education"
   ],
 
   whoShouldAttend: [

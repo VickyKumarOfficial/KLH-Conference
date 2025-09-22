@@ -1,5 +1,6 @@
 "use client";
 import { motion, useMotionValue, useMotionTemplate } from "framer-motion";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 import klhLogo from '@/assets/KLH_Logo.png';
 import efl from '@/assets/EFL.jpg';
 import cambridge from '@/assets/Cambridge.jpg';
@@ -51,9 +52,11 @@ export default function LogoBar() {
 
   return (
     <section 
-      className="group relative bg-white dark:bg-black py-0 -mt-8 pt-8"
+      className="group relative bg-neutral-50 dark:bg-neutral-900/50 py-8 transition-colors duration-300"
       onMouseMove={handleMouseMove}
     >
+      <BackgroundBeams className="absolute inset-0 opacity-75" />
+      
       {/* Dot pattern backgrounds */}
       <div
         className="pointer-events-none absolute inset-0 dark:hidden"

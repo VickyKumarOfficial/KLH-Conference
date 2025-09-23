@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import { getCurrentYearSpeakers } from "../../data/speakers";
-import { BackgroundBeams } from "../ui/background-beams";
+// import { BackgroundBeams } from "../ui/background-beams";
 
 export const SpeakersSection = () => {
   const speakers = getCurrentYearSpeakers();
 
   return (
-    <section className="relative py-20 bg-neutral-50 dark:bg-neutral-900/50 overflow-hidden transition-colors duration-300">
-      <BackgroundBeams />
+    <section className="relative py-20 bg-transparent dark:bg-transparent overflow-hidden transition-colors duration-300">
+      {/* <BackgroundBeams /> */}
       
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div

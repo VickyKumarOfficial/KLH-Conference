@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getAllYears, getSpeakersByYear } from "../data/speakers";
+import Footer from '@/components/sections/Footer';
 
 export const Speakers = () => {
   const years = getAllYears();
@@ -8,10 +9,11 @@ export const Speakers = () => {
   const speakers = getSpeakersByYear(selectedYear);
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
+    <div className="min-h-screen flex flex-col bg-black relative">
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black -z-10"></div>
       
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <main className="flex-1 relative z-10 w-full px-4 sm:px-6 lg:px-8 py-20">
+        <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -134,7 +136,9 @@ export const Speakers = () => {
             </div>
           </div>
         </motion.div>
-      </div>
+        </div>
+      </main>
+      <Footer />
     </div>
   );
 };

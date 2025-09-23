@@ -31,11 +31,11 @@ export default function Logo({
         className={`${sizeClasses[size]} w-auto transition-all duration-200 hover:scale-105`}
       />
       <div className="flex flex-col">
-        <span className={`font-bold ${textSizeClasses[size]} text-primary leading-tight`}>
+        <span className={`font-bold ${textSizeClasses[size]} text-blue-700 leading-tight`}>
           KLH Conference
         </span>
         {showYear && (
-          <span className="text-xs text-muted-foreground leading-tight hidden sm:block">
+          <span className="text-xs text-gray-500 leading-tight hidden sm:block">
             2025
           </span>
         )}

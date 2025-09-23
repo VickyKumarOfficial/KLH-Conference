@@ -2,11 +2,13 @@ import { motion } from "framer-motion";
 import { registrationFees, registrationDeadlines, onlineNote, whatsappGroupLink } from "../data/registration";
 import { BackgroundBeams } from "../components/ui/background-beams";
 import { Calendar, MessageCircle, CreditCard, Clock } from "lucide-react";
+import Footer from '@/components/sections/Footer';
 
 export default function Registration() {
   return (
-    <div className="relative py-20 bg-neutral-50 dark:bg-neutral-900/50 overflow-hidden transition-colors duration-300">
-      <BackgroundBeams />
+    <div className="min-h-screen flex flex-col">
+      <main className="flex-1 relative py-20 bg-neutral-50 dark:bg-neutral-900/50 overflow-hidden transition-colors duration-300">
+        <BackgroundBeams />
       
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -173,6 +175,8 @@ export default function Registration() {
           </motion.div>
         </div>
       </div>
+      </main>
+      <Footer />
     </div>
   );
 }

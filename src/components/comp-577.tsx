@@ -288,7 +288,7 @@ export default function ConferenceNavbar() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <Button asChild variant="ghost" size="sm" className="text-sm">
-            <a href="#contact">Contact</a>
+            <Link to="/contact">Contact</Link>
           </Button>
           <Button asChild size="sm" className="text-sm">
             <Link to="/registration">Register Now</Link>

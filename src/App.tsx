@@ -6,6 +6,7 @@ import { Speakers } from '@/pages/Speakers'
 import Registration from '@/pages/Registration'
 import AboutUs from '@/pages/AboutUs'
 import Conferences from '@/pages/Conferences'
+import Contact from '@/pages/Contact'
 import { WhatsAppFloat } from '@/components/ui/whatsapp-float'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import './App.css'
@@ -23,6 +24,7 @@ function App() {
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/speakers" element={<Speakers />} />
             <Route path="/registration" element={<Registration />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
           <WhatsAppFloat />
         </div>

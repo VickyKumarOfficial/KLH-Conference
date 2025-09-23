@@ -83,7 +83,7 @@ const ThemeCard = ({ title, items, color }: { title: string; items: string[]; co
 export default function ThemesSection() {
   return (
     <section className="relative py-20 bg-neutral-50 dark:bg-neutral-900/50 overflow-hidden transition-colors duration-300">
-      <BackgroundBeams className="opacity-75" />
+      <BackgroundBeams />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}

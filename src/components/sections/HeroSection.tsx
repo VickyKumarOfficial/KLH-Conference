@@ -4,14 +4,25 @@ import { Link } from "react-router-dom";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
 import { Spotlight } from "@/components/ui/spotlight";
 import { Button } from "@/components/ui/button";
-import { BackgroundBeams } from "@/components/ui/background-beams";
 import { Calendar, MapPin, ArrowRight } from "lucide-react";
 import { conferenceData } from "@/data/conference";
 
 export default function HeroSection() {
   return (
-    <div className="relative min-h-screen sm:min-h-[85vh] md:min-h-[80vh] lg:min-h-[75vh] xl:min-h-[70vh] flex items-center justify-center overflow-hidden -mt-4 py-8 sm:py-12 md:py-16 bg-neutral-50 dark:bg-neutral-900/50 transition-colors duration-300">
-      <BackgroundBeams className="opacity-75" />
+    <div className="relative min-h-screen sm:min-h-[85vh] md:min-h-[80vh] lg:min-h-[75vh] xl:min-h-[70vh] flex items-center justify-center overflow-hidden -mt-4 py-8 sm:py-12 md:py-16 bg-white dark:bg-black">
+      {/* Seamless Dotted Background Pattern */}
+      <div
+        className="pointer-events-none absolute inset-0 dark:hidden"
+        style={{
+          backgroundImage: `url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3E%3Ccircle fill='%23d4d4d4' id='pattern-circle' cx='10' cy='10' r='2.5'%3E%3C/circle%3E%3C/svg%3E")`,
+        }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0 hidden dark:block"
+        style={{
+          backgroundImage: `url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3E%3Ccircle fill='%23404040' id='pattern-circle' cx='10' cy='10' r='2.5'%3E%3C/circle%3E%3C/svg%3E")`,
+        }}
+      />
       
       {/* Spotlight Effects */}
       <Spotlight

@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom"
+import { useState, useRef, useEffect } from "react"
 import Logo from "@/components/navbar-components/logo"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
@@ -14,13 +15,102 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 
+import { 
+  Users, 
+  BookOpen,
+  ChevronDown 
+} from "lucide-react"
+
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
   { href: "/", label: "Home" },
   { href: "/speakers", label: "Speakers" },
   { href: "/schedule", label: "Schedule" },
-  { href: "#about", label: "About" },
+  { href: "#about", label: "About", hasDropdown: true },
 ]
+
+// About dropdown sections
+const aboutDropdownItems = [
+  { 
+    href: "/about-us", 
+    label: "About Us", 
+    icon: BookOpen,
+    isRoute: true
+  },
+  { 
+    href: "#conferences", 
+    label: "Conferences", 
+    icon: Users,
+    isRoute: false
+  }
+]
+
+// Custom hoverable dropdown component that supports both hover and click events
+interface HoverableDropdownProps {
+  trigger: React.ReactNode;
+  children: React.ReactNode;
+}
+
+function HoverableDropdownMenu({ trigger, children }: HoverableDropdownProps) {
+  const [isOpen, setIsOpen] = useState(false)
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const dropdownRef = useRef<HTMLDivElement>(null)
+  
+  // Clear any existing timeout to prevent race conditions
+  const clearHoverTimeout = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+      timeoutRef.current = null
+    }
+  }
+  
+  // Handle mouse enter event
+  const handleMouseEnter = () => {
+    clearHoverTimeout()
+    setIsOpen(true)
+  }
+  
+  // Handle mouse leave event with a small delay to prevent accidental closing
+  const handleMouseLeave = () => {
+    clearHoverTimeout()
+    timeoutRef.current = setTimeout(() => {
+      setIsOpen(false)
+    }, 300)
+  }
+  
+  // Handle click event to toggle dropdown
+  const handleClick = () => {
+    setIsOpen(!isOpen)
+  }
+  
+  // Handle clicks outside to close dropdown
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false)
+      }
+    }
+    
+    document.addEventListener('mousedown', handleOutsideClick)
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick)
+    }
+  }, [])
+  
+  return (
+    <div 
+      ref={dropdownRef}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="relative"
+    >
+      <div onClick={handleClick}>
+        {trigger}
+      </div>
+      {isOpen && children}
+    </div>
+  )
+}
 
 export default function ConferenceNavbar() {
   const location = useLocation()
@@ -70,7 +160,41 @@ export default function ConferenceNavbar() {
                 <NavigationMenuList className="flex-col items-start gap-0 md:gap-2">
                   {navigationLinks.map((link, index) => (
                     <NavigationMenuItem key={`mobile-${link.href}-${index}`} className="w-full">
-                      {link.href.startsWith('/') ? (
+                      {link.hasDropdown ? (
+                        <HoverableDropdownMenu
+                          trigger={
+                            <button className="flex items-center justify-between w-full py-1.5 text-left">
+                              {link.label} <ChevronDown className="h-4 w-4" />
+                            </button>
+                          }
+                        >
+                          <div className="absolute top-full left-0 z-50 w-full overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md animate-in fade-in-80">
+                            <div className="space-y-1">
+                              {aboutDropdownItems.map((item, i) => (
+                                item.isRoute ? (
+                                  <Link 
+                                    key={i}
+                                    to={item.href}
+                                    className="flex items-center gap-2 rounded-sm p-2 text-sm hover:bg-accent"
+                                  >
+                                    <item.icon className="h-4 w-4" />
+                                    <span>{item.label}</span>
+                                  </Link>
+                                ) : (
+                                  <a 
+                                    key={i}
+                                    href={item.href}
+                                    className="flex items-center gap-2 rounded-sm p-2 text-sm hover:bg-accent"
+                                  >
+                                    <item.icon className="h-4 w-4" />
+                                    <span>{item.label}</span>
+                                  </a>
+                                )
+                              ))}
+                            </div>
+                          </div>
+                        </HoverableDropdownMenu>
+                      ) : link.href.startsWith('/') ? (
                         <NavigationMenuLink asChild>
                           <Link 
                             to={link.href} 
@@ -104,7 +228,39 @@ export default function ConferenceNavbar() {
               <NavigationMenuList className="gap-2">
                 {navigationLinks.map((link, index) => (
                   <NavigationMenuItem key={`desktop-${link.href}-${index}`}>
-                    {link.href.startsWith('/') ? (
+                    {link.hasDropdown ? (
+                      <HoverableDropdownMenu
+                        trigger={
+                          <button className="text-muted-foreground hover:text-primary py-1.5 font-medium flex items-center gap-1 outline-none">
+                            {link.label} <ChevronDown className="h-4 w-4" />
+                          </button>
+                        }
+                      >
+                        <div className="absolute z-50 mt-1 min-w-[220px] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md animate-in fade-in-80 data-[side=bottom]:slide-in-from-top-1">
+                          {aboutDropdownItems.map((item, i) => (
+                            item.isRoute ? (
+                              <Link 
+                                key={i}
+                                to={item.href}
+                                className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none hover:bg-accent hover:text-accent-foreground"
+                              >
+                                <item.icon className="mr-2 h-4 w-4" />
+                                <span>{item.label}</span>
+                              </Link>
+                            ) : (
+                              <a 
+                                key={i}
+                                href={item.href}
+                                className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none hover:bg-accent hover:text-accent-foreground"
+                              >
+                                <item.icon className="mr-2 h-4 w-4" />
+                                <span>{item.label}</span>
+                              </a>
+                            )
+                          ))}
+                        </div>
+                      </HoverableDropdownMenu>
+                    ) : link.href.startsWith('/') ? (
                       <NavigationMenuLink asChild>
                         <Link 
                           to={link.href}

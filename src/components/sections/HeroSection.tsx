@@ -79,7 +79,7 @@ export default function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                <span className="font-bold">Innovations in Technology & Research</span> - Shaping the Future Through Knowledge and Innovation
+              Shaping the Future Through Knowledge and Innovation
               </motion.p>
             </div>
 

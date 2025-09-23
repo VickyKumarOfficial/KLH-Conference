@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
-import { BackgroundBeams } from "@/components/ui/background-beams";
+// import { BackgroundBeams } from "@/components/ui/background-beams";
 import { 
   Users, 
   Lightbulb, 
@@ -103,8 +103,8 @@ const attendeeCategories = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="relative py-20 bg-neutral-50 dark:bg-neutral-900/50 overflow-hidden transition-colors duration-300">
-      <BackgroundBeams className="opacity-30 dark:opacity-20" />
+    <section id="about" className="relative py-20 bg-transparent dark:bg-transparent overflow-hidden transition-colors duration-300">
+      {/* <BackgroundBeams className="opacity-30 dark:opacity-20" /> */}
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}

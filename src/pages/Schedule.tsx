@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Spotlight } from '@/components/ui/spotlight'
 import { Highlight } from '@/components/ui/hero-highlight'
 import { BackgroundBeams } from '@/components/ui/background-beams'
+import Footer from '@/components/sections/Footer'
 
 export default function Schedule() {
   const [selectedDay, setSelectedDay] = useState(0)
@@ -27,20 +28,21 @@ export default function Schedule() {
   }
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-white dark:bg-black">
-      {/* Background Pattern - consistent with HeroSection */}
-      <div
-        className="pointer-events-none absolute inset-0 dark:hidden"
-        style={{
-          backgroundImage: `url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3E%3Ccircle fill='%23d4d4d4' id='pattern-circle' cx='10' cy='10' r='2.5'%3E%3C/circle%3E%3C/svg%3E")`,
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-0 hidden dark:block"
-        style={{
-          backgroundImage: `url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3E%3Ccircle fill='%23404040' id='pattern-circle' cx='10' cy='10' r='2.5'%3E%3C/circle%3E%3C/svg%3E")`,
-        }}
-      />
+    <div className="min-h-screen flex flex-col">
+      <main className="flex-1 relative w-full overflow-hidden bg-white dark:bg-black">
+        {/* Background Pattern - consistent with HeroSection */}
+        <div
+          className="pointer-events-none absolute inset-0 dark:hidden"
+          style={{
+            backgroundImage: `url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3E%3Ccircle fill='%23d4d4d4' id='pattern-circle' cx='10' cy='10' r='2.5'%3E%3C/circle%3E%3C/svg%3E")`,
+          }}
+        />
+        <div
+          className="pointer-events-none absolute inset-0 hidden dark:block"
+          style={{
+            backgroundImage: `url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3E%3Ccircle fill='%23404040' id='pattern-circle' cx='10' cy='10' r='2.5'%3E%3C/circle%3E%3C/svg%3E")`,
+          }}
+        />
       
       {/* Spotlight Effects - responsive positioning */}
       <Spotlight
@@ -309,6 +311,8 @@ export default function Schedule() {
           </motion.div>
         </div>
       </div>
+      </main>
+      <Footer />
     </div>
   )
 }

@@ -48,7 +48,7 @@ export const conferenceData = {
 
 export const aboutData = {
   title: "About the Conference",
-  description: "The KLH International Conference 2025 brings together leading minds in technology, research, and innovation. This premier event serves as a platform for sharing cutting-edge research, fostering collaboration, and discussing the future of technology.",
+  description: "This international conference provides a platform for scholars, researchers, educators, and practitioners to engage in interdisciplinary conversations on the multifaceted relationship between language, literature, and teaching. The conference aims to foster a dynamic exchange of ideas, exploring how these fields intersect and inform one another, and how their synergy can enhance educational practices and research. The contemporary academic landscape increasingly recognizes the value of interdisciplinary approaches. Language and literature, while distinct, are deeply interconnected. Language provides the medium for literary expression, while literature enriches our understanding of language use, cultural context, and human experience. The teaching of both is a complex endeavor that benefits from insights from linguistics, pedagogy, psychology, and cultural studies. This conference is designed to break down traditional disciplinary silos and encourage a holistic understanding of these fields, addressing the challenges and opportunities presented by globalization, technological advancements, and evolving educational needs.",
   
   objectives: [
     "To explore the latest research and innovative pedagogical approaches at the intersection of language, literature, and teaching",

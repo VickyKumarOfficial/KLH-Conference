@@ -38,10 +38,10 @@ const aboutDropdownItems = [
     isRoute: true
   },
   { 
-    href: "#conferences", 
+    href: "/conferences", 
     label: "Conferences", 
     icon: Users,
-    isRoute: false
+    isRoute: true
   }
 ]
 

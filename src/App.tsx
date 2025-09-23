@@ -5,6 +5,7 @@ import Schedule from '@/pages/Schedule'
 import { Speakers } from '@/pages/Speakers'
 import Registration from '@/pages/Registration'
 import AboutUs from '@/pages/AboutUs'
+import Conferences from '@/pages/Conferences'
 import { WhatsAppFloat } from '@/components/ui/whatsapp-float'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import './App.css'
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/conferences" element={<Conferences />} />
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/speakers" element={<Speakers />} />
             <Route path="/registration" element={<Registration />} />

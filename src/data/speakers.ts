@@ -74,7 +74,7 @@ export const speakers: SpeakersByYear = {
       affiliation: "Mahindra University",
       position: "Professor",
       expertise: ["Language Processing", "Artificial Intelligence", "Deep Learning"],
-      image: "/Dr. C. Tabitha .png",
+      image: "/Dr. C. Tabitha.png",
       year: 2026
     },
     {

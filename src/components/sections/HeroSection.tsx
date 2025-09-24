@@ -39,7 +39,7 @@ export default function HeroSection() {
                 Interdisciplinary Conversations in Language, Literature, and Pedagogy
                 <br />
                 <span className="block mt-2 sm:mt-3 md:mt-4">
-                  <Highlight className="text-white dark:text-white whitespace-nowrap">
+                  <Highlight className="text-black dark:text-white whitespace-nowrap">
                     (ICLLP - 2026)
                   </Highlight>
                 </span>
